@@ -1,49 +1,81 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-      
-    <title>Google map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+    
+
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map, #pano {
-        float: left;
-        height: 100%;
-        width: 45%;
+
+        float: center;
+        height: 80%;
+        max-width: 100%;
+        position:relative;
       }
-      /* Optional: Makes the sample page fill the window. */
+      #check {
+        float: center;
+        height: 100%;
+       width: 100%;
+        position:relative;
+      }
+      
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+
       }
-    </style>
-  </head>
-  <body>
-        <center><h3>วิธีการใช้ Google map</h3>
-    <h5>ให้คุณลากคนไปตรงจุดที่ต้องการในแผนที่ข้างซ้าย และเดินทางตามลูกศรในแผนที่ข้างขวาไปยังจุดสีแดง คือ ตึกคณะวิทยาการสารสนเทศ</h5></center>
-    <div id="map"></div>
-    <div id="pano"></div>
-    <div id="infowindow-content">
-      <img id="place-icon" src="" height="16" width="16">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-id"></span><br>
-      <span id="place-address"></span>
-    </div>
-    <script>
+
+</style>
+
+<body >
+<h3 align="center">วิธีการใช้ Google map</h3>
+    <h5 align="center">ให้คุณลากคนไปตรงจุดที่ต้องการในแผนที่ข้างซ้าย และเดินทางตามลูกศรในแผนที่ข้างขวาไปยังจุดสีแดง คือ ตึกคณะวิทยาการสารสนเทศ</h5>
+
+<div class="w3-main w3-quarter" id="check"  >
+  <div class="w3-main w3-quarter" id="map"  >
+        <div id="infowindow-content">
+          <img id="place-icon" src="" height="16" width="16">
+          <span id="place-name"  class="title"></span><br>
+          <span id="place-id"></span><br>
+          <span id="place-address"></span>
+        </div>
+  </div>
+<div class="w3-main w3-quarter" id="pano" >
+    <div class="w3-quarter" id="pano">
+        <div id="infowindow-content">
+          <img id="place-icon" src="" height="16" width="16">
+          <span id="place-name"  class="title"></span><br>
+          <span id="place-id"></span><br>
+          <span id="place-address"></span>
+        </div>
+      </div>
+</div>
+    
+</div>
+
+
+
+<script>
       var map;
       function initMap() {
-          var myLatlng = {lat: 13.281232, lng: 100.923991};
+          var myLatlng =  {lat: 13.2860216, lng: 100.9253658 };
+          var mypin =  {lat: 13.2811998, lng: 100.92414 };
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 13.281232, lng: 100.923991},
+          center: {lat: 13.2860216, lng: 100.9253658 },
           zoom: 16
         });
 
         var marker = new google.maps.Marker({
-          position: myLatlng,
+          position: mypin,
           map: map,
           title: 'Click to zoom'
         });
@@ -141,7 +173,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgw-a_huNk0epF0_XY9W1DU0-3yuodgtA&libraries=places&callback=initMap"
     async defer></script>
-</center>
-  </body>
 
+
+
+</body>
 </html>

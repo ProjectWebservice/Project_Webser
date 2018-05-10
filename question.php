@@ -67,33 +67,33 @@ function checkStudentName($userId, $text) {
 	}
 }
 
-function checkNationalId($userId, $text) {
-    $objConn = new Database();
-    $objConn->connect();
+// function checkNationalId($userId, $text) {
+//     $objConn = new Database();
+//     $objConn->connect();
 
-    $studentId = getStudentId($userId);
+//     $studentId = getStudentId($userId);
 
-    $objConn->query("SELECT `studentId` FROM `chatbotStudent` WHERE `studentId` = '" . $studentId . "' AND `userNationId` = '" . $text . "'");
-    $rows = array();
+//     $objConn->query("SELECT `studentId` FROM `chatbotStudent` WHERE `studentId` = '" . $studentId . "' AND `userNationId` = '" . $text . "'");
+//     $rows = array();
 
-    foreach ($objConn->results->fetchall() as $temp) {
-        $rows[] = $temp['studentId'];
-    }
+//     foreach ($objConn->results->fetchall() as $temp) {
+//         $rows[] = $temp['studentId'];
+//     }
 
-    if (count($rows) > 0) {
-        setState($userId, 3);
+//     if (count($rows) > 0) {
+//         setState($userId, 3);
         
-        return showAllQuestion();
-    } else {
-        setState($userId, 1);
+//         return showAllQuestion();
+//     } else {
+//         setState($userId, 1);
 
-        $response = array();
-        $response[] = createMessage("ไม่พบเลขบัตรประชาชน");
-        $response[] = createMessage("คุณต้องการทราบข้อมูลนิสิตชื่ออะไร?");
+//         $response = array();
+//         $response[] = createMessage("ไม่พบเลขบัตรประชาชน");
+//         $response[] = createMessage("คุณต้องการทราบข้อมูลนิสิตชื่ออะไร?");
 
-        return $response;
-    }
-}
+//         return $response;
+//     }
+// }
 
 function checkApiQuestion($userId, $text) {
     switch ($text) {
@@ -101,6 +101,10 @@ function checkApiQuestion($userId, $text) {
             return showAllQuestion();
         case "เลือกนิสิตใหม่":
             return askStudentName($userId);
+        case "NEXT":
+            //return askStudentName($userId);
+        case "PREVIOUS":
+            //return askStudentName($userId);      
     }
 
     $objConn = new Database();

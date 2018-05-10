@@ -1,4 +1,4 @@
-<?php
+<?phpๅๅๅๅ
 
 class Database {
 	private $host="localhost";

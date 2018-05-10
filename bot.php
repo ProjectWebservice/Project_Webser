@@ -1,4 +1,4 @@
-<?php
+ๅๅๅ<?php
 include_once('helper.php');
 include_once('question.php');
 

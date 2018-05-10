@@ -1,4 +1,4 @@
-<?php
+<?php ใใใใ
 include_once('database.php');
 
 class Constant {
